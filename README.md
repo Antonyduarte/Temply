@@ -1,4 +1,4 @@
-# SaaS de Agendamento com IA
+# Temply
 
 Backend de uma plataforma de agendamentos construída com Node.js, Express e MySQL. A aplicação oferece autenticação, recuperação de senha, gerenciamento de agendamentos e permissões administrativas.
 
@@ -25,8 +25,8 @@ Node.js · Express 5 · MySQL · mysql2 · bcrypt · JSON Web Token · Nodemaile
 ## Instalação
 
 ```bash
-git clone https://github.com/Antonyduarte/SaaS-de-agendamento-com-IA.git
-cd SaaS-de-agendamento-com-IA
+git clone https://github.com/Antonyduarte/Temply.git
+cd Temply
 npm install
 ```
 

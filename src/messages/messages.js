@@ -10,12 +10,13 @@ const MESSAGES = {
     EDIT_DATA_FALSE: "Ocorreu um erro, seu horário não foi alterado",
     DATA_NOT_FOUND: "Agendamento não encontrado",
     FOUND_REGISTER_FALSE: "Nenhum registro encontrado",
+    MAX_LENGTH_SCHEDULE: "O Título do agendamento deve ser menor",
     
     //ERROS DE LOGIN/REGISTER/AUTH
     USER_NOT_FOUND: "USER_NOT_FOUND",
-    INVALID_LOGIN: "INVALID_LOGIN",
+    INVALID_LOGIN: "Login inválido",
     REGEX_MAIL: "Formato inválido de e-mail",
-    SENHA_LENGTH: "Sua senha deve conter no mínimo 8 dígitos",
+    INVALID_PASSWORD: "Sua senha deve conter mais de 8 dígitos",
 
     //INTERNAL SERVER ERROR
     INTERNAL_ERROR: "INTERNAL_ERROR",

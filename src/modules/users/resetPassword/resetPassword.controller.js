@@ -6,6 +6,12 @@ async function setPassword(req, res) {
     try {
         const { email, code, password } = req.body
         
+        if (password.length <= 8){
+            return res.status(400).json(apiRes.apiResponse(
+                false,
+                MESSAGES.INVALID_PASSWORD
+            ))
+        }
         await resetService.resetPassword(email, code, password)
 
         return res.status(200).json(apiRes.apiResponse(

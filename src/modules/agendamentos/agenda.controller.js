@@ -15,6 +15,12 @@ async function agendar(req, res) {
             MESSAGES.EMPTY_DATA_MSG // Certifique-se de preencher todos os campos
         ))
     }
+    if (compromisso.lenght > 255){
+        return res.status(400).json(apiRes.apiResponse(
+            false,
+            MESSAGES.MAX_LENGTH_SCHEDULE
+        ))
+    }
     if (!dataValida) {
         return res.status(400).json(apiRes.apiResponse(
             false,
@@ -189,7 +195,7 @@ async function editAgenda(req, res) {
 
         const result = await agendaService.editAgenda(data, hora, id, user_id)
 
-        if (result.length <= 0) {
+        if (result.affectedRows <= 0) {
             return res.status(404).json(apiRes.apiResponse(
                 false,
                 MESSAGES.DATA_NOT_FOUND,

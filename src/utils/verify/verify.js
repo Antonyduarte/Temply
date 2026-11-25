@@ -5,19 +5,21 @@ function verify(req, res, next) {
     const { nome, email, senha } = req.body
     // ----------------------------------------------------------------
     //nome
-    if(!nome || nome.trim() === "") {
-        return res.status(400).json(responses.apiResponse(
-            false, 
-            "Preencha o campo 'Nome'"
-        ))
-    }
-    if(typeof nome !== "string" || !NOME_REGEX.test(nome)) {
+    if (typeof nome !== "string" || !NOME_REGEX.test(nome)) {
         return res.status(400).json(responses.apiResponse(
             false,
             "O nome deve conter apenas letras, acentos e espaços"
         ))
     }
-    if(nome.length > 30) {
+
+    if (!nome || nome.trim() === "") {
+        return res.status(400).json(responses.apiResponse(
+            false,
+            "Preencha o campo 'Nome'"
+        ))
+    }
+
+    if (nome.length > 30) {
         return res.status(400).json(responses.apiResponse(
             false,
             "O nome de usuário não pode conter mais de 30 caracteres"
@@ -25,9 +27,9 @@ function verify(req, res, next) {
     }
     // ----------------------------------------------------------------
     //Email
-    if(!email || email.trim() === "") {
+    if (!email || email.trim() === "") {
         return res.status(400).json(responses.apiResponse(
-            false, 
+            false,
             "Preencha o campo 'Email'"
         ))
     }
@@ -40,10 +42,16 @@ function verify(req, res, next) {
 
     // ----------------------------------------------------------------
     // Senha
-    if(!senha || senha.trim() === "") {
+    if (!senha || senha.trim() === "") {
         return res.status(400).json(responses.apiResponse(
             false,
             "Preencha o campo 'Senha'"
+        ))
+    }
+    if (senha.length <= 8) {
+        return res.status(400).json(responses.apiResponse(
+            false,
+            "Sua senha deve conter mais de 8 caracteres"
         ))
     }
     next()

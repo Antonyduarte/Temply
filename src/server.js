@@ -1,6 +1,6 @@
 import "dotenv/config"
 import app from "./app.js"
-import "./jobs/expiredAppointments.js"
+import job from "./jobs/expiredAppointments.js"
 
 const PORT = process.env.SERVER_PORT || 3000
 

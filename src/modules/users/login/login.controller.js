@@ -26,7 +26,7 @@ async function login(req, res) {
             result
         ))
     } catch (error) {
-        if (error.message === MESSAGES.USER_NOT_FOUND) {
+        if (error.message === MESSAGES.INVALID_LOGIN) {
             return res.status(401).json(apiRes.apiResponse(
                 false,
                 "Usuário não encontrado"

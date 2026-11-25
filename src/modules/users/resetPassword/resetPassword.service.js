@@ -24,7 +24,8 @@ async function resetPassword(email, code, password) {
         throw new Error(MESSAGES.UNVAILABLE_CODE)
     }
 
-    const validateCode = await bcrypt.compare(String(code), recentlyCode.code_hash)
+    const validateCode = await bcrypt.compare(String(code),
+    recentlyCode.code_hash)
     if (!validateCode) {
         throw new Error(MESSAGES.UNVAILABLE_CODE)
     }

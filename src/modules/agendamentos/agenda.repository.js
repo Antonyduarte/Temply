@@ -8,7 +8,7 @@ const connection = pool
 
 async function agendar(user_id, compromisso, data, hora) {
 
-    let [result] = await connection.query("INSERT INTO agendamentos (user_id, compromisso, data, hora) SELECT ?, ?, ?, ? WHERE TIMESTAMP (?, ?) > NOW()", [user_id, compromisso, data, hora, data, hora])
+    let [result] = await connection.query("INSERT INTO agendamentos (user_id, compromisso, data, hora) SELECT ?, ?, ?, ? WHERE TIMESTAMP (?, ?) > NOW() AND ? > '09:00:00' AND ? < '18:00:00' ", [user_id, compromisso, data, hora, data, hora, hora, hora])
 
     if (result.affectedRows === 0) {
         throw Error(MESSAGES.INVALID_DATA)
